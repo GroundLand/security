@@ -64,11 +64,19 @@
                 <entry key="xml_escape" value-ref="fmXmlEscape" />
             </map>
         </property>
+        <property name="freemarkerSettings">
+            <props>
+                <prop key="template_update_delay">0</prop><!-- 0为开发使用，正式使用时应大于3600 -->
+                <prop key="defaultEncoding">UTF-8</prop> <!--这里添加为了页面中文乱码-->
+                <prop key="locale">zh_CN</prop>
+            </props>
+        </property>
     </bean>
     <bean id="fmXmlEscape" class="freemarker.template.utility.XmlEscape" />
     <bean id="freemakerViewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
-        <property name="viewClass" value="org.springframework.web.servlet.view.freemarker.FreeMarkerView" />
-        <property name="contentType" value="text/html; charset=UTF-8" />
+        <property name="cache" value="true"/> <!--不然会报302-->
+        <property name="viewClass" value="org.springframework.web.servlet.view.freemarker.FreeMarkerView"/>
+        <property name="contentType" value="text/html; charset=UTF-8"/>
         <property name="exposeRequestAttributes" value="true" />
         <property name="exposeSessionAttributes" value="true" />
         <property name="exposeSpringMacroHelpers" value="true" />

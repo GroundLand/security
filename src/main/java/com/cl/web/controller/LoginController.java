@@ -3,6 +3,7 @@ package com.cl.web.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * Created by evel on 2018/1/22.
@@ -20,6 +21,11 @@ public class LoginController {
         model.addAttribute("loginError",true);
         model.addAttribute("errorMsg","登陆失败，用户名或者密码错误！");
         return "login";
+    }
+
+    @RequestMapping("/home")
+    public String success(){
+        return "home";
     }
 
 }

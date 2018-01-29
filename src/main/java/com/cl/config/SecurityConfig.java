@@ -20,23 +20,24 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                    .antMatchers("/css/**", "/js/**", "/fonts/**", "/index").permitAll()
-                    .antMatchers("/users/**").hasRole("USER")
-                    .antMatchers("/admins/**").hasRole("ADMIN")
-                    .and()
-                .formLogin()
-                    .loginPage("/login").failureForwardUrl("login-error")
-                    .and()
-                .exceptionHandling().accessDeniedPage("/403");
+                    .antMatchers("/resources/**", "/signup", "/static/**").permitAll()
+                    .antMatchers("/admin/**").hasRole("ADMIN")
+                    .antMatchers("/db/**").access("hasRole('ADMIN') and hasRole('DBA')")
+                    .anyRequest().authenticated()
+                .and()
+                    .formLogin()
+                    .loginPage("/login").permitAll()
+                .and()
+                    .exceptionHandling().accessDeniedPage("/403");
         http.logout().logoutSuccessUrl("/");
     }
 
     @Bean
-    public UserDetailsService userDetailsService(){
+    public UserDetailsService userDetailsService() {
         InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager(); // 在内存中存放用户信息
         //User对象为UserDetail
-        manager.createUser(User.withUsername("waylau").password("123456").roles("USER").build());
-        manager.createUser(User.withUsername("admin").password("123456").roles("USER","ADMIN").build());
+        manager.createUser(User.withUsername("user").password("password").roles("USER").build());
+        manager.createUser(User.withUsername("admin").password("password").roles("USER", "ADMIN").build());
         return manager;
     }
 
