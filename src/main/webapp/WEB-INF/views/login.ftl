@@ -7,12 +7,13 @@
         <h2 class='login_title text-center'>登录</h2>
         <hr>
 
-        <form class="form-signin">
+        <form class="form-signin" action="/login" method="post">
             <span id="reauth-email" class="reauth-email"></span>
             <p class="input_title">用户名</p>
-            <input type="text" id="username" class="login_box" placeholder="请输入用户名" required autofocus>
+            <input type="text" id="username" name="username" class="login_box" placeholder="请输入用户名" required autofocus>
             <p class="input_title">密码</p>
-            <input type="password" id="password" class="login_box"  required>
+            <input type="password" id="password"  name="username" class="login_box"  required>
+            <p style="color: red">${errorMsg!""}</p>
             <div id="remember" class="checkbox">
                 <label>
 

@@ -20,16 +20,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                    .antMatchers("/resources/**", "/signup", "/static/**").permitAll()
-                    .antMatchers("/admin/**").hasRole("ADMIN")
-                    .antMatchers("/db/**").access("hasRole('ADMIN') and hasRole('DBA')")
-                    .anyRequest().authenticated()
+                .antMatchers("/**").permitAll()
+//                    .antMatchers("/admin/**").hasRole("ADMIN")
+//                    .antMatchers("/db/**").access("hasRole('ADMIN') and hasRole('DBA')")
+                .anyRequest().authenticated()
                 .and()
-                    .formLogin()
-                    .loginPage("/login").permitAll()
+                .formLogin()
+                .loginPage("/login").defaultSuccessUrl("/home").permitAll()
                 .and()
-                    .exceptionHandling().accessDeniedPage("/403");
-        http.logout().logoutSuccessUrl("/");
+                .exceptionHandling().accessDeniedPage("/403");
+        http.logout().logoutSuccessUrl("/login?logout");
     }
 
     @Bean
