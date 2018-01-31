@@ -12,8 +12,8 @@
             <p class="input_title">用户名</p>
             <input type="text" id="username" name="username" class="login_box" placeholder="请输入用户名" required autofocus>
             <p class="input_title">密码</p>
-            <input type="password" id="password"  name="username" class="login_box"  required>
-            <p style="color: red">${errorMsg!""}</p>
+            <input type="password" id="password"  name="password" class="login_box"  required>
+            <p style="color: red">${param.error!""}</p>
             <div id="remember" class="checkbox">
                 <label>
 
