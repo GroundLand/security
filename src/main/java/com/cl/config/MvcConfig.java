@@ -50,7 +50,7 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
 
     @Bean
     public FreeMarkerConfigurer freemarkerConfig()throws IOException {
-        Properties properties = PropertiesUtil.formLocation("classpath:freemarker.properties");
+        Properties properties = PropertiesUtil.formClassPath("freemarker.properties");
         FreeMarkerConfigurer freeMarkerConfigurer = new FreeMarkerConfigurer();
         freeMarkerConfigurer.setTemplateLoaderPath("/WEB-INF/views/");
         freeMarkerConfigurer.setFreemarkerSettings(properties);

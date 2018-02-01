@@ -1,4 +1,3 @@
-
 <#include "common/base.ftl">
 <@html title="Spring scurity登录页面">
 <div class="container">
@@ -13,7 +12,6 @@
             <input type="text" id="username" name="username" class="login_box" placeholder="请输入用户名" required autofocus>
             <p class="input_title">密码</p>
             <input type="password" id="password"  name="password" class="login_box"  required>
-            <p style="color: red">${param.error!""}</p>
             <div id="remember" class="checkbox">
                 <label>
 
