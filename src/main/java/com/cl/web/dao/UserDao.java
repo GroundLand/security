@@ -1,6 +1,8 @@
 package com.cl.web.dao;
 
-import org.springframework.security.core.userdetails.User;
+
+
+import com.cl.domain.User;
 import org.springframework.stereotype.Service;
 
 /**

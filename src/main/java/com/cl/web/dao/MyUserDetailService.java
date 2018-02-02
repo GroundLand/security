@@ -1,4 +1,4 @@
-package com.cl.config.security;
+package com.cl.web.dao;
 
 import com.cl.web.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +14,7 @@ public class MyUserDetailService implements UserDetailsService {
     private UserDao userDao;
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        return userDao.getByUserName(s);
+        UserDetails userDetails =  userDao.getByUserName(s);
+        return userDetails;
     }
 }

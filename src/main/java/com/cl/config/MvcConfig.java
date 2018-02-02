@@ -1,7 +1,7 @@
 package com.cl.config;
 
 import com.cl.util.PropertiesUtil;
-import com.cl.config.security.MyUserDetailService;
+import com.cl.web.dao.MyUserDetailService;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
