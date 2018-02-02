@@ -1,6 +1,7 @@
 package com.cl.config.intializer;
 
 import com.cl.config.MvcConfig;
+import com.cl.config.SecurityConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 /**
@@ -11,7 +12,7 @@ public class DispatcherServletApplicationInitializer extends AbstractAnnotationC
 
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[0];
+        return new Class[]{SecurityConfig.class};
     }
 
     @Override
